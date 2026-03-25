@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 320px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+  color: #1f2937;
+  background: #ffffff;
+}
+
+.container {
+  padding: 20px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #111827;
+}
+
+.state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.state[hidden] {
+  display: none !important;
+}
+
+.message {
+  font-size: 14px;
+  color: #4b5563;
+  text-align: center;
+}
+
+.message-sub {
+  font-size: 12px;
+  color: #6b7280;
+  text-align: center;
+}
+
+.error-text {
+  color: #dc2626;
+}
+
+.success-text {
+  color: #16a34a;
+  font-weight: 500;
+}
+
+.warning-text {
+  color: #d97706;
+}
+
+.link {
+  color: #3b82f6;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* Count display */
+.count-display {
+  text-align: center;
+  margin: 4px 0;
+}
+
+.deal-count {
+  font-size: 36px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1;
+}
+
+.deal-label {
+  font-size: 16px;
+  color: #6b7280;
+  margin-left: 6px;
+}
+
+/* Buttons */
+.button-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.btn {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: #3b82f6;
+  color: #ffffff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.btn-secondary {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #e5e7eb;
+}
+
+.btn-danger {
+  background: #fee2e2;
+  color: #dc2626;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: #fecaca;
+}
+
+/* Progress bar */
+.progress-bar-container {
+  width: 100%;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 4px 0;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #3b82f6;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* Timestamp */
+.timestamp {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 4px;
+}
+
+.timestamp.stale {
+  color: #d97706;
+}
+
+.filename {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 12px;
+  color: #6b7280;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Kumo Export</h1>
+
+    <!-- State: No data -->
+    <div id="state-nodata" class="state" hidden>
+      <p class="message">Navigate to the Kumo deals page to get started.</p>
+      <a href="https://app.withkumo.com" target="_blank" class="link">Open Kumo →</a>
+    </div>
+
+    <!-- State: Not logged in -->
+    <div id="state-nologin" class="state" hidden>
+      <p class="message error-text">⚠ Not logged in</p>
+      <p class="message-sub">Please log in to Kumo and refresh the page.</p>
+    </div>
+
+    <!-- State: Ready -->
+    <div id="state-ready" class="state" hidden>
+      <div class="count-display">
+        <span id="deal-count" class="deal-count">0</span>
+        <span class="deal-label">deals</span>
+      </div>
+      <p class="message-sub">matching current filters</p>
+      <div class="button-row">
+        <button id="btn-csv" class="btn btn-secondary">Export CSV</button>
+        <button id="btn-xlsx" class="btn btn-primary">Export Excel</button>
+      </div>
+      <p id="last-updated" class="timestamp"></p>
+    </div>
+
+    <!-- State: Exporting -->
+    <div id="state-exporting" class="state" hidden>
+      <p id="export-label" class="message">Exporting...</p>
+      <div class="progress-bar-container">
+        <div id="progress-bar" class="progress-bar" style="width: 0%"></div>
+      </div>
+      <p id="progress-detail" class="message-sub"></p>
+      <button id="btn-cancel" class="btn btn-danger">Cancel</button>
+    </div>
+
+    <!-- State: Complete -->
+    <div id="state-complete" class="state" hidden>
+      <p class="message success-text">✓ <span id="complete-text">Exported</span></p>
+      <p id="complete-filename" class="message-sub filename"></p>
+      <p id="complete-warning" class="message-sub warning-text" hidden></p>
+      <div class="button-row">
+        <button id="btn-csv-2" class="btn btn-secondary">Export CSV</button>
+        <button id="btn-xlsx-2" class="btn btn-primary">Export Excel</button>
+      </div>
+    </div>
+
+    <!-- State: Error -->
+    <div id="state-error" class="state" hidden>
+      <p id="error-message" class="message error-text"></p>
+      <div class="button-row">
+        <button id="btn-csv-3" class="btn btn-secondary">Export CSV</button>
+        <button id="btn-xlsx-3" class="btn btn-primary">Export Excel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

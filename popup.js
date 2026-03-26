@@ -23,6 +23,8 @@ const completeWarning = document.getElementById("complete-warning");
 
 const errorMessage = document.getElementById("error-message");
 
+const copyTokenBtn = document.getElementById("btn-copy-token");
+
 let completeTimer = null;
 
 // --- Show one state, hide all others ---
@@ -33,8 +35,26 @@ function showState(id) {
   document.getElementById(id).hidden = false;
 }
 
+// --- Copy token button ---
+let currentToken = null;
+
+function updateCopyTokenBtn(token) {
+  currentToken = token || null;
+  copyTokenBtn.hidden = !currentToken;
+}
+
+copyTokenBtn.addEventListener("click", async () => {
+  if (!currentToken) return;
+  // Strip "Bearer " prefix for a clean token
+  const raw = currentToken.startsWith("Bearer ") ? currentToken.slice(7) : currentToken;
+  await navigator.clipboard.writeText(raw);
+  copyTokenBtn.textContent = "Copied!";
+  setTimeout(() => { copyTokenBtn.textContent = "Copy Token"; }, 1500);
+});
+
 // --- Render based on state + exportState ---
 function render(state, exportState) {
+  updateCopyTokenBtn(state?.token);
   if (exportState?.active) {
     showState("state-exporting");
     renderExporting(exportState);
